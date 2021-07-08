@@ -1,0 +1,263 @@
+/* Colors used
+Text Color (light brown): #272a37;
+Primary Color (green): #B5CDA3;
+Secondary Color (light green): #C9E4C5;
+Button Color (green): #36802d;
+Background Color (tan): #FAEBE0;
+
+ */
+
+ /*----- Variables -----*/
+
+ :root{
+   --primary-color: #B5CDA3;
+   --Secondary-color: #C9E4C5;
+   --primary-text-color: #272a37;
+   --block-color: #B5CDA3;
+   --green: #36802d;
+   --background-color: #FAEBE0;
+   --sun-color_0: #edc655;
+   --sun-color_50: #fcffad;
+   --sun-color_100: #f76414;
+   --strong-font: 400;
+   --normal-font: 400;
+   --lato: "lato", sans-serif;
+ }
+
+body {
+  background-color: var( --background-color);
+  font-family: var(--lato);
+  font-weight: var(--strong-font);
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 0 16px;
+}
+
+h1 {
+  font-family: var(--lato);
+  font-size: 30px;
+  font-weight: var(--strong-font);
+}
+
+h2 {
+  font-family: var(--lato);
+  font-size: 24px;
+  font-weight: var(--strong-font);
+}
+
+h3 {
+  font-family: var(--lato);
+  font-size: 18px;
+  font-weight: var(--strong-font);
+}
+
+a:visited {
+  /* visited link */
+  color: var(--primary-text-color);
+}
+
+a {
+  color: var(--green);
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+a:active {
+  /* selected link */
+  color: var(--green);
+}
+
+/*----- Buttons -----*/
+
+.button, button {
+  border: none;
+  display: inline-block;
+  font-family: inherit;
+  background-color: var(--green);
+  color: var(--block-color);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease-in;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+  /* lets the mouse appear as a hand when hovering over the button */
+  cursor: pointer;
+  background-color: var(--green);
+  color: var(--block-color);
+  opacity: 0.8;
+}
+
+.button__secondary {
+  background-color: var(--green);
+  color: var(--block-color);
+}
+
+/*----- Header -----*/
+
+.page-header {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+}
+
+.page-header__item {
+  flex: 0 1 200px;
+}
+
+.page-header__item:last-child {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.navigation-list {
+  list-style-type: none;
+}
+
+.navigation-list li {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.navigation-list__item--active {
+  text-decoration: none;
+}
+
+/*----- Home Page, Footer and Grid -----*/
+
+.profile__portrait {
+  float: left;
+  width: 250px;
+  margin-right: 40px;
+  border-radius: 50%;
+}
+
+.contact {
+  float: left;
+  width: 250px;
+  margin-right: 40px;
+  border-radius: 50%;
+  flex: 1 1 100px;
+}
+
+.page-footer {
+  clear: both;
+}
+
+.profile {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.about {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+ul {
+ list-style: none;
+}
+
+.page-footer {
+    clear: both;
+    display: column;
+    text-align: center;
+}
+
+.profile__text {
+    flex: 1 1 100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.grid__item {
+  background-color: lightgray;
+  width: auto;
+  min-height: auto;
+  margin: 0;
+}
+
+/*----- Animation -----*/
+
+@keyframes color-change{
+  0%{
+   fill: var(--sun-color_0);
+  }
+  50%{
+    fill: var(--sun-color_50);
+  }
+  100%{
+    fill: var(--sun-color_100);
+  }
+}
+
+.sun{
+  animation:4s color-change infinite alternate linear;
+}
+
+@keyframes cloud-move {
+  from {
+    transform: translate(0, 50px);
+  }
+  to {
+    transform: translate(200px, 50px);
+  }
+}
+
+.cloud-front {
+  animation: 30s cloud-move infinite alternate linear;
+}
+
+@keyframes cloud-move-reverse {
+  from {
+    transform: translate(446px, 48px);
+  }
+  to {
+    transform: translate(100px, 48px);
+  }
+}
+
+.cloud-back {
+  animation: 34s cloud-move-reverse infinite alternate linear;
+}
+
+/*----- Media Queries -----*/
+
+@media all and (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media all and (min-width: 500px) and (max-width: 750px){
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (max-width: 750px) {
+  .grid {
+    grid-gap: 10px;
+  }
+  .grid__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}
